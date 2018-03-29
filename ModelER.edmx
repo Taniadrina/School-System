@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="livexModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alumno">
+          <Key>
+            <PropertyRef Name="idalumno" />
+          </Key>
+          <Property Name="idalumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alumno_nombre" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="alumno_apellido_p" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="alumno_apellido_m" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fecha_nac" Type="varchar" MaxLength="10" />
+          <Property Name="telefono_casa" Type="varchar" MaxLength="45" />
+          <Property Name="telefono_celular" Type="varchar" MaxLength="45" />
+          <Property Name="domicilio_calle" Type="varchar" MaxLength="45" />
+          <Property Name="domicilio_no" Type="varchar" MaxLength="10" />
+          <Property Name="domicilio_col" Type="varchar" MaxLength="45" />
+          <Property Name="domicilio_mun" Type="varchar" MaxLength="45" />
+          <Property Name="domicilio_cp" Type="varchar" MaxLength="7" />
+          <Property Name="domicilio_edo" Type="varchar" MaxLength="45" />
+          <Property Name="curso_inicial" Type="varchar" MaxLength="45" />
+          <Property Name="grupo_id" Type="int" />
+          <Property Name="categoria_id" Type="int" />
+          <Property Name="facturacion_id" Type="int" />
+          <Property Name="picture" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="alumno_factura">
+          <Key>
+            <PropertyRef Name="idalumno_factura" />
+          </Key>
+          <Property Name="idalumno_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" />
+          <Property Name="rfc" Type="varchar" MaxLength="45" />
+          <Property Name="estado" Type="varchar" MaxLength="45" />
+          <Property Name="ciudad" Type="varchar" MaxLength="45" />
+          <Property Name="direccion" Type="varchar" MaxLength="45" />
+          <Property Name="direccion_no" Type="varchar" MaxLength="45" />
+          <Property Name="colonia" Type="varchar" MaxLength="45" />
+          <Property Name="cp" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="asistencia_maestros">
+          <Key>
+            <PropertyRef Name="asistencia_maestrosID" />
+          </Key>
+          <Property Name="No" Type="int" />
+          <Property Name="DN" Type="int" />
+          <Property Name="UID" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="Status" Type="varchar" MaxLength="45" />
+          <Property Name="Action" Type="int" />
+          <Property Name="APB" Type="int" />
+          <Property Name="JobCode" Type="int" />
+          <Property Name="date" Type="date" />
+          <Property Name="asistencia_maestrosID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filename" Type="varchar" MaxLength="45" />
+          <Property Name="hour" Type="int" />
+          <Property Name="min" Type="int" />
+          <Property Name="sec" Type="int" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="idcategoria" />
+          </Key>
+          <Property Name="idcategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoria_nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="5" Scale="0" />
+          <Property Name="tipo_periodo" Type="varchar" MaxLength="10" />
+          <Property Name="clasificacion" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ciclo">
+          <Key>
+            <PropertyRef Name="idciclo" />
+          </Key>
+          <Property Name="idciclo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha_inicio" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fecha_fin" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ciclo_num" Type="int" Nullable="false" />
+          <Property Name="ciclo_side" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="ciclocol" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grupo">
+          <Key>
+            <PropertyRef Name="idgrupo" />
+          </Key>
+          <Property Name="idgrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_nivel" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Horario_inicio" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Horario_fin" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Dias" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MaestroID" Type="int" Nullable="false" />
+          <Property Name="Idioma" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="CategoriaID" Type="int" />
+          <Property Name="CicloID" Type="int" />
+          <Property Name="numero_alumnos" Type="int" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grupo_categoria">
+          <Key>
+            <PropertyRef Name="idgrupo_categoria" />
+          </Key>
+          <Property Name="idgrupo_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grupo_ID" Type="int" Nullable="false" />
+          <Property Name="categoria_ID" Type="int" Nullable="false" />
+          <Property Name="nivel" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="idlanguage" />
+          </Key>
+          <Property Name="idlanguage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="language_name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="skills">
+          <Key>
+            <PropertyRef Name="idskills" />
+          </Key>
+          <Property Name="idskills" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="skills_name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="idteacher" />
+          </Key>
+          <Property Name="idteacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teacher_names" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="teacher_lastname" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="teacher_gender" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="salary_base" Type="int" Nullable="false" />
+          <Property Name="language" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="start_date" Type="varchar" MaxLength="18" />
+          <Property Name="RFC" Type="varchar" MaxLength="20" />
+          <Property Name="CURP" Type="varchar" MaxLength="20" />
+          <Property Name="street_address" Type="varchar" MaxLength="25" />
+          <Property Name="neighborhood" Type="varchar" MaxLength="20" />
+          <Property Name="zip_code" Type="varchar" MaxLength="8" />
+          <Property Name="state" Type="varchar" MaxLength="20" />
+          <Property Name="sub_state" Type="varchar" MaxLength="20" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="celphone" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="25" />
+          <Property Name="birthday" Type="varchar" MaxLength="20" />
+          <Property Name="emergency_contact_name" Type="varchar" MaxLength="50" />
+          <Property Name="emergency_contact_number" Type="varchar" MaxLength="20" />
+          <Property Name="picture" Type="varchar" MaxLength="255" />
+          <Property Name="uid" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="teacher_skills">
+          <Key>
+            <PropertyRef Name="idteacher_skills" />
+          </Key>
+          <Property Name="idteacher_skills" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teacherID" Type="int" Nullable="false" />
+          <Property Name="skillID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="user_password" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_categoriaID">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+          <End Role="grupo_categoria" Type="Self.grupo_categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="idcategoria" />
+            </Principal>
+            <Dependent Role="grupo_categoria">
+              <PropertyRef Name="categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cicloID">
+          <End Role="ciclo" Type="Self.ciclo" Multiplicity="0..1" />
+          <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciclo">
+              <PropertyRef Name="idciclo" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="CicloID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_facturacion_id">
+          <End Role="alumno_factura" Type="Self.alumno_factura" Multiplicity="0..1" />
+          <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alumno_factura">
+              <PropertyRef Name="idalumno_factura" />
+            </Principal>
+            <Dependent Role="alumno">
+              <PropertyRef Name="facturacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_grupo_id">
+          <End Role="grupo" Type="Self.grupo" Multiplicity="0..1" />
+          <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo">
+              <PropertyRef Name="idgrupo" />
+            </Principal>
+            <Dependent Role="alumno">
+              <PropertyRef Name="grupo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_grupocategoria_ID">
+          <End Role="grupo_categoria" Type="Self.grupo_categoria" Multiplicity="0..1" />
+          <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo_categoria">
+              <PropertyRef Name="idgrupo_categoria" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_maestroID">
+          <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+          <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="idteacher" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="MaestroID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_teacherID">
+          <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+          <End Role="teacher_skills" Type="Self.teacher_skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="idteacher" />
+            </Principal>
+            <Dependent Role="teacher_skills">
+              <PropertyRef Name="teacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="livexModelStoreContainer">
+          <EntitySet Name="alumno" EntityType="Self.alumno" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="alumno_factura" EntityType="Self.alumno_factura" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="asistencia_maestros" EntityType="Self.asistencia_maestros" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="ciclo" EntityType="Self.ciclo" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="grupo" EntityType="Self.grupo" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="grupo_categoria" EntityType="Self.grupo_categoria" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="language" EntityType="Self.language" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="skills" EntityType="Self.skills" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="teacher" EntityType="Self.teacher" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="teacher_skills" EntityType="Self.teacher_skills" Schema="livex" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="livex" store:Type="Tables" />
+          <AssociationSet Name="fk_categoriaID" Association="Self.fk_categoriaID">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="grupo_categoria" EntitySet="grupo_categoria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cicloID" Association="Self.fk_cicloID">
+            <End Role="ciclo" EntitySet="ciclo" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_facturacion_id" Association="Self.fk_facturacion_id">
+            <End Role="alumno_factura" EntitySet="alumno_factura" />
+            <End Role="alumno" EntitySet="alumno" />
+          </AssociationSet>
+          <AssociationSet Name="fk_grupo_id" Association="Self.fk_grupo_id">
+            <End Role="grupo" EntitySet="grupo" />
+            <End Role="alumno" EntitySet="alumno" />
+          </AssociationSet>
+          <AssociationSet Name="fk_grupocategoria_ID" Association="Self.fk_grupocategoria_ID">
+            <End Role="grupo_categoria" EntitySet="grupo_categoria" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_maestroID" Association="Self.fk_maestroID">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_teacherID" Association="Self.fk_teacherID">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="teacher_skills" EntitySet="teacher_skills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="livexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="idlanguage" />
+          </Key>
+          <Property Name="idlanguage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="language_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="skills">
+          <Key>
+            <PropertyRef Name="idskills" />
+          </Key>
+          <Property Name="idskills" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="skills_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="teacher_skills">
+          <Key>
+            <PropertyRef Name="idteacher_skills" />
+          </Key>
+          <Property Name="idteacher_skills" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teacherID" Type="Int32" Nullable="false" />
+          <Property Name="skillID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="teacher" Relationship="livexModel.fk_teacherID" FromRole="teacher_skills" ToRole="teacher" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="livexEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="language" EntityType="Self.language" />
+          <EntitySet Name="skills" EntityType="Self.skills" />
+          <EntitySet Name="teacher_skills" EntityType="Self.teacher_skills" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <EntitySet Name="categoria" EntityType="livexModel.categoria" />
+          <EntitySet Name="grupo_categoria" EntityType="livexModel.grupo_categoria" />
+          <AssociationSet Name="fk_categoriaID" Association="livexModel.fk_categoriaID">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="grupo_categoria" EntitySet="grupo_categoria" />
+          </AssociationSet>
+          <EntitySet Name="ciclo" EntityType="livexModel.ciclo" />
+          <EntitySet Name="grupo" EntityType="livexModel.grupo" />
+          <AssociationSet Name="fk_cicloID" Association="livexModel.fk_cicloID">
+            <End Role="ciclo" EntitySet="ciclo" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_grupocategoria_ID" Association="livexModel.fk_grupocategoria_ID">
+            <End Role="grupo_categoria" EntitySet="grupo_categoria" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <EntitySet Name="alumno_factura" EntityType="livexModel.alumno_factura" />
+          <EntitySet Name="alumno" EntityType="livexModel.alumno" />
+          <AssociationSet Name="fk_facturacion_id" Association="livexModel.fk_facturacion_id">
+            <End Role="alumno_factura" EntitySet="alumno_factura" />
+            <End Role="alumno" EntitySet="alumno" />
+          </AssociationSet>
+          <AssociationSet Name="fk_grupo_id" Association="livexModel.fk_grupo_id">
+            <End Role="grupo" EntitySet="grupo" />
+            <End Role="alumno" EntitySet="alumno" />
+          </AssociationSet>
+          <EntitySet Name="teacher" EntityType="livexModel.teacher" />
+          <AssociationSet Name="fk_maestroID" Association="livexModel.fk_maestroID">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_teacherID" Association="livexModel.fk_teacherID">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="teacher_skills" EntitySet="teacher_skills" />
+          </AssociationSet>
+          <EntitySet Name="asistencia_maestros" EntityType="livexModel.asistencia_maestros" />
+          </EntityContainer>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="idcategoria" />
+          </Key>
+          <Property Name="idcategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoria_nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Decimal" />
+          <Property Name="tipo_periodo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="clasificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="grupo_categoria" Relationship="livexModel.fk_categoriaID" FromRole="categoria" ToRole="grupo_categoria" />
+        </EntityType>
+        <EntityType Name="grupo_categoria">
+          <Key>
+            <PropertyRef Name="idgrupo_categoria" />
+          </Key>
+          <Property Name="idgrupo_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grupo_ID" Type="Int32" Nullable="false" />
+          <Property Name="categoria_ID" Type="Int32" Nullable="false" />
+          <Property Name="nivel" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="categoria" Relationship="livexModel.fk_categoriaID" FromRole="grupo_categoria" ToRole="categoria" />
+          <NavigationProperty Name="grupo" Relationship="livexModel.fk_grupocategoria_ID" FromRole="grupo_categoria" ToRole="grupo" />
+        </EntityType>
+        <Association Name="fk_categoriaID">
+          <End Type="livexModel.categoria" Role="categoria" Multiplicity="1" />
+          <End Type="livexModel.grupo_categoria" Role="grupo_categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="idcategoria" />
+            </Principal>
+            <Dependent Role="grupo_categoria">
+              <PropertyRef Name="categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ciclo">
+          <Key>
+            <PropertyRef Name="idciclo" />
+          </Key>
+          <Property Name="idciclo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_inicio" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_fin" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ciclo_num" Type="Int32" Nullable="false" />
+          <Property Name="ciclo_side" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ciclocol" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="grupo" Relationship="livexModel.fk_cicloID" FromRole="ciclo" ToRole="grupo" />
+        </EntityType>
+        <EntityType Name="grupo">
+          <Key>
+            <PropertyRef Name="idgrupo" />
+          </Key>
+          <Property Name="idgrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_nivel" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Horario_inicio" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Horario_fin" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Dias" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="MaestroID" Type="Int32" Nullable="false" />
+          <Property Name="Idioma" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CategoriaID" Type="Int32" />
+          <Property Name="CicloID" Type="Int32" />
+          <Property Name="numero_alumnos" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ciclo" Relationship="livexModel.fk_cicloID" FromRole="grupo" ToRole="ciclo" />
+          <NavigationProperty Name="grupo_categoria" Relationship="livexModel.fk_grupocategoria_ID" FromRole="grupo" ToRole="grupo_categoria" />
+          <NavigationProperty Name="alumno" Relationship="livexModel.fk_grupo_id" FromRole="grupo" ToRole="alumno" />
+          <NavigationProperty Name="teacher" Relationship="livexModel.fk_maestroID" FromRole="grupo" ToRole="teacher" />
+        </EntityType>
+        <Association Name="fk_cicloID">
+          <End Type="livexModel.ciclo" Role="ciclo" Multiplicity="0..1" />
+          <End Type="livexModel.grupo" Role="grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciclo">
+              <PropertyRef Name="idciclo" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="CicloID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_grupocategoria_ID">
+          <End Type="livexModel.grupo_categoria" Role="grupo_categoria" Multiplicity="0..1" />
+          <End Type="livexModel.grupo" Role="grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo_categoria">
+              <PropertyRef Name="idgrupo_categoria" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="alumno_factura">
+          <Key>
+            <PropertyRef Name="idalumno_factura" />
+          </Key>
+          <Property Name="idalumno_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rfc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_no" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="colonia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="alumno" Relationship="livexModel.fk_facturacion_id" FromRole="alumno_factura" ToRole="alumno" />
+        </EntityType>
+        <EntityType Name="alumno">
+          <Key>
+            <PropertyRef Name="idalumno" />
+          </Key>
+          <Property Name="idalumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alumno_nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="alumno_apellido_p" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="alumno_apellido_m" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nac" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_casa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_celular" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio_calle" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio_col" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio_mun" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio_cp" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="domicilio_edo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="curso_inicial" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="grupo_id" Type="Int32" />
+          <Property Name="categoria_id" Type="Int32" />
+          <Property Name="facturacion_id" Type="Int32" />
+          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="alumno_factura" Relationship="livexModel.fk_facturacion_id" FromRole="alumno" ToRole="alumno_factura" />
+          <NavigationProperty Name="grupo" Relationship="livexModel.fk_grupo_id" FromRole="alumno" ToRole="grupo" />
+        </EntityType>
+        <Association Name="fk_facturacion_id">
+          <End Type="livexModel.alumno_factura" Role="alumno_factura" Multiplicity="0..1" />
+          <End Type="livexModel.alumno" Role="alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alumno_factura">
+              <PropertyRef Name="idalumno_factura" />
+            </Principal>
+            <Dependent Role="alumno">
+              <PropertyRef Name="facturacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_grupo_id">
+          <End Type="livexModel.grupo" Role="grupo" Multiplicity="0..1" />
+          <End Type="livexModel.alumno" Role="alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo">
+              <PropertyRef Name="idgrupo" />
+            </Principal>
+            <Dependent Role="alumno">
+              <PropertyRef Name="grupo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="idteacher" />
+          </Key>
+          <Property Name="idteacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teacher_names" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="teacher_lastname" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="teacher_gender" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="salary_base" Type="Int32" Nullable="false" />
+          <Property Name="language" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="start_date" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="street_address" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="neighborhood" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="zip_code" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sub_state" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="celphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="birthday" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emergency_contact_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emergency_contact_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="uid" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="grupo" Relationship="livexModel.fk_maestroID" FromRole="teacher" ToRole="grupo" />
+          <NavigationProperty Name="teacher_skills" Relationship="livexModel.fk_teacherID" FromRole="teacher" ToRole="teacher_skills" />
+        </EntityType>
+        <Association Name="fk_maestroID">
+          <End Type="livexModel.teacher" Role="teacher" Multiplicity="1" />
+          <End Type="livexModel.grupo" Role="grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="idteacher" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="MaestroID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_teacherID">
+          <End Type="livexModel.teacher" Role="teacher" Multiplicity="1" />
+          <End Type="livexModel.teacher_skills" Role="teacher_skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="idteacher" />
+            </Principal>
+            <Dependent Role="teacher_skills">
+              <PropertyRef Name="teacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="asistencia_maestros">
+          <Key>
+            <PropertyRef Name="asistencia_maestrosID" />
+          </Key>
+          <Property Name="No" Type="Int32" />
+          <Property Name="DN" Type="Int32" />
+          <Property Name="UID" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="Int32" />
+          <Property Name="APB" Type="Int32" />
+          <Property Name="JobCode" Type="Int32" />
+          <Property Name="date" Type="DateTime" />
+          <Property Name="asistencia_maestrosID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filename" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="hour" Type="Int32" />
+          <Property Name="min" Type="Int32" />
+          <Property Name="sec" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="livexModelStoreContainer" CdmEntityContainer="livexEntities">
+          <EntitySetMapping Name="language">
+            <EntityTypeMapping TypeName="livexModel.language">
+              <MappingFragment StoreEntitySet="language">
+                <ScalarProperty Name="idlanguage" ColumnName="idlanguage" />
+                <ScalarProperty Name="language_name" ColumnName="language_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skills">
+            <EntityTypeMapping TypeName="livexModel.skills">
+              <MappingFragment StoreEntitySet="skills">
+                <ScalarProperty Name="idskills" ColumnName="idskills" />
+                <ScalarProperty Name="skills_name" ColumnName="skills_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teacher_skills">
+            <EntityTypeMapping TypeName="livexModel.teacher_skills">
+              <MappingFragment StoreEntitySet="teacher_skills">
+                <ScalarProperty Name="idteacher_skills" ColumnName="idteacher_skills" />
+                <ScalarProperty Name="teacherID" ColumnName="teacherID" />
+                <ScalarProperty Name="skillID" ColumnName="skillID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="livexModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoria">
+            <EntityTypeMapping TypeName="livexModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
+                <ScalarProperty Name="tipo_periodo" ColumnName="tipo_periodo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="categoria_nombre" ColumnName="categoria_nombre" />
+                <ScalarProperty Name="idcategoria" ColumnName="idcategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grupo_categoria">
+            <EntityTypeMapping TypeName="livexModel.grupo_categoria">
+              <MappingFragment StoreEntitySet="grupo_categoria">
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="categoria_ID" ColumnName="categoria_ID" />
+                <ScalarProperty Name="grupo_ID" ColumnName="grupo_ID" />
+                <ScalarProperty Name="idgrupo_categoria" ColumnName="idgrupo_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ciclo">
+            <EntityTypeMapping TypeName="livexModel.ciclo">
+              <MappingFragment StoreEntitySet="ciclo">
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="ciclocol" ColumnName="ciclocol" />
+                <ScalarProperty Name="ciclo_side" ColumnName="ciclo_side" />
+                <ScalarProperty Name="ciclo_num" ColumnName="ciclo_num" />
+                <ScalarProperty Name="Fecha_fin" ColumnName="Fecha_fin" />
+                <ScalarProperty Name="Fecha_inicio" ColumnName="Fecha_inicio" />
+                <ScalarProperty Name="idciclo" ColumnName="idciclo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grupo">
+            <EntityTypeMapping TypeName="livexModel.grupo">
+              <MappingFragment StoreEntitySet="grupo">
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="numero_alumnos" ColumnName="numero_alumnos" />
+                <ScalarProperty Name="CicloID" ColumnName="CicloID" />
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="MaestroID" ColumnName="MaestroID" />
+                <ScalarProperty Name="Dias" ColumnName="Dias" />
+                <ScalarProperty Name="Horario_fin" ColumnName="Horario_fin" />
+                <ScalarProperty Name="Horario_inicio" ColumnName="Horario_inicio" />
+                <ScalarProperty Name="nombre_nivel" ColumnName="nombre_nivel" />
+                <ScalarProperty Name="idgrupo" ColumnName="idgrupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alumno_factura">
+            <EntityTypeMapping TypeName="livexModel.alumno_factura">
+              <MappingFragment StoreEntitySet="alumno_factura">
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="direccion_no" ColumnName="direccion_no" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idalumno_factura" ColumnName="idalumno_factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alumno">
+            <EntityTypeMapping TypeName="livexModel.alumno">
+              <MappingFragment StoreEntitySet="alumno">
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="facturacion_id" ColumnName="facturacion_id" />
+                <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+                <ScalarProperty Name="grupo_id" ColumnName="grupo_id" />
+                <ScalarProperty Name="curso_inicial" ColumnName="curso_inicial" />
+                <ScalarProperty Name="domicilio_edo" ColumnName="domicilio_edo" />
+                <ScalarProperty Name="domicilio_cp" ColumnName="domicilio_cp" />
+                <ScalarProperty Name="domicilio_mun" ColumnName="domicilio_mun" />
+                <ScalarProperty Name="domicilio_col" ColumnName="domicilio_col" />
+                <ScalarProperty Name="domicilio_no" ColumnName="domicilio_no" />
+                <ScalarProperty Name="domicilio_calle" ColumnName="domicilio_calle" />
+                <ScalarProperty Name="telefono_celular" ColumnName="telefono_celular" />
+                <ScalarProperty Name="telefono_casa" ColumnName="telefono_casa" />
+                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+                <ScalarProperty Name="alumno_apellido_m" ColumnName="alumno_apellido_m" />
+                <ScalarProperty Name="alumno_apellido_p" ColumnName="alumno_apellido_p" />
+                <ScalarProperty Name="alumno_nombre" ColumnName="alumno_nombre" />
+                <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teacher">
+            <EntityTypeMapping TypeName="livexModel.teacher">
+              <MappingFragment StoreEntitySet="teacher">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="emergency_contact_number" ColumnName="emergency_contact_number" />
+                <ScalarProperty Name="emergency_contact_name" ColumnName="emergency_contact_name" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="celphone" ColumnName="celphone" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="sub_state" ColumnName="sub_state" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+                <ScalarProperty Name="neighborhood" ColumnName="neighborhood" />
+                <ScalarProperty Name="street_address" ColumnName="street_address" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="salary_base" ColumnName="salary_base" />
+                <ScalarProperty Name="teacher_gender" ColumnName="teacher_gender" />
+                <ScalarProperty Name="teacher_lastname" ColumnName="teacher_lastname" />
+                <ScalarProperty Name="teacher_names" ColumnName="teacher_names" />
+                <ScalarProperty Name="idteacher" ColumnName="idteacher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asistencia_maestros">
+            <EntityTypeMapping TypeName="livexModel.asistencia_maestros">
+              <MappingFragment StoreEntitySet="asistencia_maestros">
+                <ScalarProperty Name="sec" ColumnName="sec" />
+                <ScalarProperty Name="min" ColumnName="min" />
+                <ScalarProperty Name="hour" ColumnName="hour" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="asistencia_maestrosID" ColumnName="asistencia_maestrosID" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="JobCode" ColumnName="JobCode" />
+                <ScalarProperty Name="APB" ColumnName="APB" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="DN" ColumnName="DN" />
+                <ScalarProperty Name="No" ColumnName="No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,158 @@
+﻿<Window x:Class="LIVEX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LIVEX"
+        mc:Ignorable="d"
+        Title="MainWindow"  Height="720" Width="1200"  WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Window.Effect>
+        <DropShadowEffect Color="#CC000000" Opacity="0.5"/>
+    </Window.Effect>
+    <Grid Margin="15" x:Name="grd_AnaGridWindow">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <!--Logo Button-->
+        <Border Background="#FFE2EFF7" Grid.Column="0" Grid.Row="0" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="White" Grid.Row="0">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="25" Opacity="0.3"/>
+                    </Border.Effect>
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Label Content="LIVEX" Foreground="#FF113F5B" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Button x:Name="btnLogo" BorderBrush="{x:Null}" Click="btnLogo_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="images/Icon/logo.png"/>
+                            </Button.Background>
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Width" Value="150"/>
+                                    <Setter Property="Height" Value="50"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Width" Value="155" />
+                                            <Setter Property="Height" Value="52" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!--mini header-->
+        <Border Background="#113E5B" Grid.Column="1" Grid.Row="0"  x:Name="brd_S" MouseDown="brd_S_MouseDown">
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="White">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="45" Opacity="0.2"/>
+                    </Border.Effect>
+                    <DockPanel Width="119" HorizontalAlignment="Right">
+                        <Button Content="__" Width="40" Style="{DynamicResource minibuttonWin}" FontSize="12" x:Name="btnMinimizar" Click="btnMinimizar_Click"/>
+                        <Button Content="□" Width="40" Style="{DynamicResource minibuttonWin}" FontSize="22" x:Name="btnMaximizae" Click="btnMaximizae_Click" />
+                        <Button Content="x" Width="40" x:Name="btn_Close" Click="btn_Close_Click" Style="{DynamicResource minibuttonWin}" FontSize="16" VerticalContentAlignment="Bottom" FontFamily="Microsoft JhengHei Light" />
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1" Background="#113E5B">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="221" Opacity="0.2"/>
+                    </Border.Effect>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <StackPanel VerticalAlignment="Center" Margin="30,0,0,0">
+                                <Label x:Name="lblBienvenida" Content="Bienvenido" FontSize="24" Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <Label Content="Hoy es " x:Name="lblFechaHeader" Foreground="White" FontSize="12" VerticalAlignment="Bottom"/>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!--Sidebar menu left-->
+        <Border Background="#FFE2EFF7" Grid.Column="0" Grid.Row="1">
+
+            <StackPanel>
+                <Button Height="50" Style="{DynamicResource menubutton}" HorizontalAlignment="Left" x:Name="menuBtn_Alumnos" Click="menuBtn_Alumnos_Click">
+                    <DockPanel Width="220" Margin="15,0,0,0">
+                        <Image Source="Images/004-people.png" Width="32"/>
+                        <Label Content="Alumnos" Foreground="#FF113F5B" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50" Style="{DynamicResource menubutton}" x:Name="menuBtn_Maestros" Click="menuBtn_Maestros_Click">
+                    <DockPanel Width="220" Margin="15,0,0,0">
+                        <Image Source="Images/003-teacher-at-the-blackboard.png" Width="32"/>
+                        <Label Content="Maestros" Foreground="#FF113F5B" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50" Style="{DynamicResource menubutton}" x:Name="menuBtn_Grupos" Click="menuBtn_Grupos_Click" >
+                    <DockPanel Width="220" Margin="15,0,0,0">
+                        <Image Source="Images/003-business-people-meeting.png" Width="32"/>
+                        <Label Content="Grupos" Foreground="#FF113F5B" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50" Style="{DynamicResource menubutton}" x:Name="menuBtn_Ganancias" Click="menuBtn_Ganancias_Click" IsEnabled="False">
+                    <DockPanel Width="220" Margin="15,0,0,0">
+                        <Image Source="Images/002-line-chart.png" Width="32"/>
+                        <Label Content="Ganancias" Foreground="#FF113F5B" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50" Style="{DynamicResource menubutton}" x:Name="menuBtn_Ajustes" Click="menuBtn_Ajustes_Click">
+                    <DockPanel Width="220" Margin="15,0,0,0">
+                        <Image Source="Images/001-cogwheel.png" Width="32"/>
+                        <Label Content="Ajustes" Foreground="#FF113F5B" FontSize="16"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+            
+        </Border>
+        
+        <!--Central content-->
+        <Border Grid.Column="1" Grid.Row="1" Background="#FFDEDEDE" >
+            <Grid x:Name="Content">
+                
+            </Grid>
+        </Border>
+    </Grid>
+    
+    
+</Window>

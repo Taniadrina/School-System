@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0B0FC14-9C2E-44DB-BA35-8D6368AF4635}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LIVEX</RootNamespace>
+    <AssemblyName>LIVEX</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.8.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.8.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="alumno.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="alumno_factura.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="asistencia_maestros.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categoria.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ciclo.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Cycle.cs" />
+    <Compile Include="Class\Grupo.cs" />
+    <Compile Include="Class\Print.cs" />
+    <Compile Include="Class\Student.cs" />
+    <Compile Include="Class\Tabulador.cs" />
+    <Compile Include="Class\Teacher.cs" />
+    <Compile Include="Class\TeacherAttendance.cs" />
+    <Compile Include="Class\TeacherAttendanceView.cs" />
+    <Compile Include="Class\TeacherForm.cs" />
+    <Compile Include="Class\teacher_skillsView.cs" />
+    <Compile Include="Class\Vistas.cs" />
+    <Compile Include="Class\WeekNumber.cs" />
+    <Compile Include="grupo.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="grupo_categoria.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="language.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModelER.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelER.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelER.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelER.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelER.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="skills.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="teacher.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="teacher_skills.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>ModelER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddStudent.xaml.cs">
+      <DependentUpon>AddStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddTeacher.xaml.cs">
+      <DependentUpon>AddTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AjustesView.xaml.cs">
+      <DependentUpon>AjustesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\alerta.xaml.cs">
+      <DependentUpon>alerta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Alta_Baja_Maestros.xaml.cs">
+      <DependentUpon>Alta_Baja_Maestros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Alumnos.xaml.cs">
+      <DependentUpon>Alumnos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AsistenciaMaestros.xaml.cs">
+      <DependentUpon>AsistenciaMaestros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GananciasView.xaml.cs">
+      <DependentUpon>GananciasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GruposView.xaml.cs">
+      <DependentUpon>GruposView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MaestrosView.xaml.cs">
+      <DependentUpon>MaestrosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NewGroup.xaml.cs">
+      <DependentUpon>NewGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NominaMaestros.xaml.cs">
+      <DependentUpon>NominaMaestros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StudentPayment.xaml.cs">
+      <DependentUpon>StudentPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TableGroupsView.xaml.cs">
+      <DependentUpon>TableGroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TableStudents.xaml.cs">
+      <DependentUpon>TableStudents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TableTeacherGroup.xaml.cs">
+      <DependentUpon>TableTeacherGroup.xaml</DependentUpon>
+    </Compile>
+    <Page Include="login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserControls\AddStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AjustesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\alerta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Alta_Baja_Maestros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Alumnos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AsistenciaMaestros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GananciasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GruposView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MaestrosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NewGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NominaMaestros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StudentPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TableGroupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TableStudents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TableTeacherGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="ModelER.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelER.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelER.edmx.diagram">
+      <DependentUpon>ModelER.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\Logo_bco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\001-increased-revenue.png" />
+    <Resource Include="Images\002-settings-work-tool.png" />
+    <Resource Include="Images\003-answer.png" />
+    <Resource Include="Images\004-teacher-at-the-blackboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pencil.jpeg" />
+    <Resource Include="Images\001-cogwheel.png" />
+    <Resource Include="Images\002-line-chart.png" />
+    <Resource Include="Images\003-teacher-at-the-blackboard.png" />
+    <Resource Include="Images\004-people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\001-wish-list.png" />
+    <Resource Include="Images\001-clipboard-search-symbol.png" />
+    <Resource Include="Images\001-fruit.png" />
+    <Resource Include="Images\001-make-a-donation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pencil-edit-button.png" />
+    <Resource Include="Images\001-rubbish-bin.png" />
+    <Resource Include="Images\001-symbol.png" />
+    <Resource Include="Images\002-school.png" />
+    <Resource Include="Images\003-business-people-meeting.png" />
+    <Resource Include="Images\calendar-with-a-clock-time-tools.png" />
+    <Resource Include="Images\001-save-file-option.png" />
+    <Resource Include="Images\002-pencil.png" />
+    <Resource Include="Images\003-arrow.png" />
+    <Resource Include="Images\004-printing-tool.png" />
+    <Resource Include="Images\005-double-sided-eraser.png" />
+    <Resource Include="Images\002-profits.png" />
+    <Resource Include="Images\003-list.png" />
+    <Resource Include="Images\004-selection.png" />
+    <Resource Include="Images\005-staff.png" />
+    <Resource Include="Images\006-students-cap.png" />
+    <Resource Include="Images\discount.png" />
+    <Resource Include="Images\discount_applied.png" />
+    <Resource Include="Images\001-lock.png" />
+    <Resource Include="Images\002-salary.png" />
+    <Resource Include="Images\004-attachment.png" />
+    <Resource Include="Images\005-new-user.png" />
+    <Resource Include="Images\001-checked-1.png" />
+    <Resource Include="Images\002-checked.png" />
+    <Resource Include="Images\dollar-coin-money.png" />
+    <Content Include="ModelER.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelER.edmx</DependentUpon>
+      <LastGenOutput>ModelER.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelER.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelER.edmx</DependentUpon>
+      <LastGenOutput>ModelER.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
