@@ -1,0 +1,181 @@
+﻿<UserControl x:Class="LIVEX.UserControls.NewGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="680">
+    <Grid Background="White" x:Name="Content">
+        <StackPanel Margin="20,20,0,0">
+           <StackPanel>
+            <TextBlock Text="Grupo" HorizontalAlignment="Center" Margin="0,0,0,20" x:Name="txtTitleGrupo" FontSize="18" FontWeight="Bold"/>
+            <DockPanel HorizontalAlignment="Left">
+                <TextBlock Text="Nivel:" Margin="0,0,79,0"/>
+                    <ComboBox Width="100" Margin="0,0,10,0" x:Name="cmbCategoria" SelectionChanged ="cmbCategoria_Selected"/>
+                    <ComboBox Width="50" Margin="0,0,10,0" IsEnabled="False" x:Name="cmbNivel12" Visibility="Collapsed" SelectedValuePath="Content">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                        <ComboBoxItem Content="6"/>
+                        <ComboBoxItem Content="7"/>
+                        <ComboBoxItem Content="8"/>
+                        <ComboBoxItem Content="9"/>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem Content="11"/>
+                        <ComboBoxItem Content="12"/>
+                    </ComboBox>
+                    <ComboBox Width="50" Margin="0,0,10,0" IsEnabled="False" x:Name="cmbNivel4" SelectedValuePath="Content">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                    </ComboBox>
+                    <ComboBox Width="80" x:Name="cmbTipo" IsEnabled="False" SelectedValuePath="Content">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <ComboBoxItem Content="Intensivo"/>
+                    </ComboBox>
+                    <ComboBox Width="80" x:Name="cmbTipo2" Visibility="Collapsed" IsEnabled="False" SelectedValuePath="Content">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                    </ComboBox>
+                </DockPanel>
+            <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                <TextBlock Text="Horario" Margin="0,0,68,0"/>
+                    <ComboBox Margin="0,0,8,0" Width="60" x:Name="cmbHrInicio" SelectionChanged="cmbHrInicio_SelectionChanged" SelectedValuePath="Content">
+                    <ComboBoxItem Content="00:00"/>
+                    <ComboBoxItem Content="01:00"/>
+                    <ComboBoxItem Content="02:00"/>
+                    <ComboBoxItem Content="03:00"/>
+                    <ComboBoxItem Content="04:00"/>
+                    <ComboBoxItem Content="05:00"/>
+                    <ComboBoxItem Content="06:00"/>
+                    <ComboBoxItem Content="07:00"/>
+                    <ComboBoxItem Content="08:00"/>
+                    <ComboBoxItem Content="09:00"/>
+                    <ComboBoxItem Content="10:00"/>
+                    <ComboBoxItem Content="11:00"/>
+                    <ComboBoxItem Content="12:00"/>
+                    <ComboBoxItem Content="13:00"/>
+                    <ComboBoxItem Content="14:00"/>
+                    <ComboBoxItem Content="15:00"/>
+                    <ComboBoxItem Content="16:00"/>
+                    <ComboBoxItem Content="17:00"/>
+                    <ComboBoxItem Content="18:00"/>
+                    <ComboBoxItem Content="19:00"/>
+                    <ComboBoxItem Content="20:00"/>
+                    <ComboBoxItem Content="21:00"/>
+                    <ComboBoxItem Content="22:00"/>
+                    <ComboBoxItem Content="23:00"/>
+                </ComboBox>
+                <TextBlock Text="a" Margin="0,0,8,0"/>
+                    <ComboBox Width="60" x:Name="cmbHrFin" IsEnabled="False" SelectedValuePath="Content" SelectionChanged="cmbHrFin_SelectionChanged">
+                    <ComboBoxItem Content="00:00"/>
+                    <ComboBoxItem Content="01:00"/>
+                    <ComboBoxItem Content="02:00"/>
+                    <ComboBoxItem Content="03:00"/>
+                    <ComboBoxItem Content="04:00"/>
+                    <ComboBoxItem Content="05:00"/>
+                    <ComboBoxItem Content="06:00"/>
+                    <ComboBoxItem Content="07:00"/>
+                    <ComboBoxItem Content="08:00"/>
+                    <ComboBoxItem Content="09:00"/>
+                    <ComboBoxItem Content="10:00"/>
+                    <ComboBoxItem Content="11:00"/>
+                    <ComboBoxItem Content="12:00"/>
+                    <ComboBoxItem Content="13:00"/>
+                    <ComboBoxItem Content="14:00"/>
+                    <ComboBoxItem Content="15:00"/>
+                    <ComboBoxItem Content="16:00"/>
+                    <ComboBoxItem Content="17:00"/>
+                    <ComboBoxItem Content="18:00"/>
+                    <ComboBoxItem Content="19:00"/>
+                    <ComboBoxItem Content="20:00"/>
+                    <ComboBoxItem Content="21:00"/>
+                    <ComboBoxItem Content="22:00"/>
+                    <ComboBoxItem Content="23:00"/>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                <TextBlock Text="Días" Margin="0,0,83,0"/>
+                <ListBox SelectionMode="Multiple" x:Name="lstDias" SelectionChanged="lstDias_SelectionChanged">
+                    <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBoxItem Content="L"/>
+                    <ListBoxItem Content="M"/>
+                    <ListBoxItem Content="Mi"/>
+                    <ListBoxItem Content="J"/>
+                    <ListBoxItem Content="V"/>
+                    <ListBoxItem Content="S"/>
+                </ListBox>
+            </DockPanel>
+                <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <TextBlock Text="Idioma" Margin="0,0,69,0"/>
+                    <RadioButton Content="Inglés" GroupName="grpIdioma" IsChecked="True" Margin="0,0,10,0" x:Name="chkingles" Click="chkingles_Click"/>
+                    <RadioButton Content="Francés" GroupName="grpIdioma" x:Name="chkFrances" Click="chkFrances_Click" />
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                <TextBlock Text="Maestro" Margin="0,0,63,0"/>
+                    <ComboBox x:Name="cmbTeacher" Width="180" IsEnabled="False" />
+            </DockPanel>
+            
+            <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                <TextBlock Text="Ciclo:" Margin="0,0,80,0"/>
+                    <ComboBox Margin="0,0,10,0" Width="50" x:Name="cmbCiclo" SelectedValuePath="Content" Visibility="Collapsed">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="13"/>
+                </ComboBox>
+                    <ComboBox Margin="0,0,10,0" Width="50" x:Name="cmbCicloEscolar" SelectedValuePath="Content" SelectionChanged="cmbCicloEscolar_SelectionChanged">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                        <ComboBoxItem Content="6"/>
+                        <ComboBoxItem Content="7"/>
+                        <ComboBoxItem Content="8"/>
+                        <ComboBoxItem Content="9"/>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem Content="11"/>
+                        <ComboBoxItem Content="12"/>
+                        <ComboBoxItem Content="13"/>
+                    </ComboBox>
+                    <TextBlock Text="Curso del " Margin="0,0,8,0"/>
+                    <DatePicker Margin="0,0,8,0" x:Name="dtpFechaInicio" Visibility="Collapsed"/>
+                    <DatePicker Margin="0,0,8,0" x:Name="dtpFechaInicioEscolar" IsEnabled="False"/>
+                    <TextBlock Text="al" Margin="0,0,8,0"/>
+                    <DatePicker x:Name="dtpFechaFin" Visibility="Collapsed"/>
+                    <DatePicker x:Name="dtpFechaFinEscolar" IsEnabled="False"/>
+                </DockPanel >
+                <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <TextBlock Text="Numero Alumnos" Margin="0,0,15,0" />
+                    <TextBox Width="40" x:Name="txtCantAlumnos"/>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Margin="0,50,0,0">
+                <DockPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <Button Style="{DynamicResource alumnoButton}" Content="Guardar" x:Name="btnGuardar" Click="btnGuardar_Click"/>
+                    <Button Style="{DynamicResource alumnoButton}" Content="Guardar" x:Name="btnGuardarEdit" Click="btnGuardarEdit_Click" Visibility="Collapsed"/>
+                    <Button Style="{DynamicResource alumnoButton}" Content="Salir" x:Name="btnSalir" Click="btnSalir_Click"/>
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="LIVEX.UserControl.Alumnos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="680">
+    <Grid x:Name="Content" Background="White">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black">
+                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Button  Style="{DynamicResource RoundCorner}" Click="btnAddStudent_Click" x:Name="btnAddStudent">
+                            <DockPanel>
+                                <Image Source="/LIVEX;component/Images/006-students-cap.png" Width="70" />
+                            </DockPanel>
+                        </Button>
+                        <Label Content="       Alumnos" FontSize="15" FontFamily="Segoe UI Light" Foreground="#FF142E5D" />
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button  Style="{DynamicResource RoundCorner}" x:Name="btnStudentAttendance" Click="btnStudentAttendance_Click">
+                        <DockPanel>
+                            <Image Source="/LIVEX;component/Images/003-list.png" Width="80"/>
+                        </DockPanel>
+                    </Button>
+                    <Label Content="Asistencia de Alumnos" FontSize="15" FontFamily="Segoe UI Light" Foreground="#FF142E5D" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button  Style="{DynamicResource RoundCorner}" x:Name="btnStudentsPayment" Click="btnStudentsPayment_Click">
+                        <DockPanel>
+                            <Image Source="/LIVEX;component/Images/002-profits.png" Width="69" Height="69"/>
+                        </DockPanel>
+                    </Button>
+                    <Label Content="Pago de Alumnos" FontSize="15" FontFamily="Segoe UI Light" Foreground="#FF142E5D" />
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button  Style="{DynamicResource RoundCorner}" x:Name="btnProspectClients" Click="btnProspectClients_Click">
+                        <DockPanel>
+                            <Image Source="/LIVEX;component/Images/005-staff.png" Width="80"/>
+                        </DockPanel>
+                    </Button>
+                    <Label Content="Alumnos Prospectos" FontSize="15" FontFamily="Segoe UI Light" Foreground="#FF142E5D" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

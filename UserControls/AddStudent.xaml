@@ -1,0 +1,429 @@
+﻿<UserControl x:Class="LIVEX.UserControls.AddStudent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="530" d:DesignWidth="680">
+    <Grid Background="White"  Name="Content">
+        <StackPanel Margin="0,10,0,0">
+            <Border Margin="0,0,0,15">
+                <TextBlock Text="Nuevo Alumno" HorizontalAlignment="Center" x:Name="txtLabelHeader"/>
+            </Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0">
+                    <StackPanel>
+                        <Border Width="100" Height="120" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" Margin="10,0,20,0">
+                            <Border.Background>
+                                <ImageBrush  Stretch="Uniform" x:Name="imgStudent"/>
+                            </Border.Background>
+                        </Border>
+                        <Button Margin="10" Width="100" Height="25" HorizontalAlignment="Left" Content="Agregar foto" x:Name="btnAddPicture" Click="btnAddPicture_Click" Style="{DynamicResource alumnoButton}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="1">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Nombres: " FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtName"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="2" Margin="10,0,0,5">
+                                <TextBlock Text="ID: " FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="3" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtID" IsEnabled="False"/>
+                            </Border>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Apellido Paterno:" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtLastName"/>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Apellido Materno: " FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtMotherName"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Fecha de Nacimiento:" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="1" Margin="0,0,0,5">
+                                <DatePicker Width="150" HorizontalAlignment="Left" FontSize="11" x:Name="dtpBirthDay"/>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="T. casa:" FontSize="11" />
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1">
+                                <TextBox x:Name="txtPhoneHome"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="2">
+                                <TextBlock Text="T. celular:" FontSize="11" Margin="125,0,0,0"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="3">
+                                <TextBox x:Name="txtCellPhone"/>
+                            </Border>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Calle" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtStreet"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="2" Margin="0,0,0,5">
+                                <TextBlock Text="Num. Ext." FontSize="11" Margin="125,0,0,0"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="3" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtNumExt"/>
+                            </Border>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Colonia" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtCol"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="2" Margin="0,0,0,5">
+                                <TextBlock Text="C.P." FontSize="11" Margin="125,0,0,0"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="3" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtZipCode"/>
+                            </Border>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="500"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Municipio" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,5">
+                                <ComboBox Width="180" HorizontalAlignment="Left" MaxDropDownHeight="100" x:Name="cmbMunicipio">
+                                    <ComboBoxItem Content="Aguascalientes"></ComboBoxItem>
+                                    <ComboBoxItem Content="Mexicali"></ComboBoxItem>
+                                    <ComboBoxItem Content="La Paz"></ComboBoxItem>
+                                    <ComboBoxItem Content="San Francisco de Campeche"></ComboBoxItem>
+                                    <ComboBoxItem Content="Chihuahua"></ComboBoxItem>
+                                    <ComboBoxItem Content="Tuxtla Gutiérrez"></ComboBoxItem>
+                                    <ComboBoxItem Content="Saltillo"></ComboBoxItem>
+                                    <ComboBoxItem Content="Colima"></ComboBoxItem>
+                                    <ComboBoxItem Content="Victoria de Durango"></ComboBoxItem>
+                                    <ComboBoxItem Content="Guanajuato"></ComboBoxItem>
+                                    <ComboBoxItem>Cd. de México</ComboBoxItem>
+                                    <ComboBoxItem>Chilpancingo de los Bravo</ComboBoxItem>
+                                    <ComboBoxItem>Pachuca de Soto</ComboBoxItem>
+                                    <ComboBoxItem>Guadalajara</ComboBoxItem>
+                                    <ComboBoxItem>Toluca de Lerdo</ComboBoxItem>
+                                    <ComboBoxItem>Morelia</ComboBoxItem>
+                                    <ComboBoxItem>Cuernavaca</ComboBoxItem>
+                                    <ComboBoxItem>Tepic</ComboBoxItem>
+                                    <ComboBoxItem>Monterrey</ComboBoxItem>
+                                    <ComboBoxItem>Oaxaca de Juárez</ComboBoxItem>
+                                    <ComboBoxItem>Puebla de Zaragoza</ComboBoxItem>
+                                    <ComboBoxItem>Santiago de Querétaro</ComboBoxItem>
+                                    <ComboBoxItem>Chetumal</ComboBoxItem>
+                                    <ComboBoxItem>San Luis Potosí</ComboBoxItem>
+                                    <ComboBoxItem>Culiacán Rosales</ComboBoxItem>
+                                    <ComboBoxItem>Hermosillo</ComboBoxItem>
+                                    <ComboBoxItem>Villahermosa</ComboBoxItem>
+                                    <ComboBoxItem>Ciudad Victoria</ComboBoxItem>
+                                    <ComboBoxItem>Tlaxcala de Xicohténcatl</ComboBoxItem>
+                                    <ComboBoxItem>Xalapa-Enríquez</ComboBoxItem>
+                                    <ComboBoxItem>Mérida</ComboBoxItem>
+                                    <ComboBoxItem>Zacatecas</ComboBoxItem>
+                                </ComboBox>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Estado" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="1" Margin="0,0,0,5">
+                                <ComboBox Width="180" HorizontalAlignment="Left" MaxDropDownHeight="100" x:Name="cmbState">
+                                    <ComboBoxItem Content="Aguascalientes"></ComboBoxItem>
+                                    <ComboBoxItem Content="Baja California"></ComboBoxItem>
+                                    <ComboBoxItem Content="Baja California Sur"></ComboBoxItem>
+                                    <ComboBoxItem Content="Campeche"></ComboBoxItem>
+                                    <ComboBoxItem Content="Chihuahua"></ComboBoxItem>
+                                    <ComboBoxItem Content="Chiapas"></ComboBoxItem>
+                                    <ComboBoxItem Content="Coahuila"></ComboBoxItem>
+                                    <ComboBoxItem Content="Colima"></ComboBoxItem>
+                                    <ComboBoxItem Content="Durango"></ComboBoxItem>
+                                    <ComboBoxItem Content="Guanajuato"></ComboBoxItem>
+                                    <ComboBoxItem>Guerrero</ComboBoxItem>
+                                    <ComboBoxItem>Hidalgo</ComboBoxItem>
+                                    <ComboBoxItem>Jalisco</ComboBoxItem>
+                                    <ComboBoxItem>México</ComboBoxItem>
+                                    <ComboBoxItem>Michoacán</ComboBoxItem>
+                                    <ComboBoxItem>Morelos</ComboBoxItem>
+                                    <ComboBoxItem>Nayarit</ComboBoxItem>
+                                    <ComboBoxItem>Nuevo León</ComboBoxItem>
+                                    <ComboBoxItem>Oaxaca</ComboBoxItem>
+                                    <ComboBoxItem>Puebla</ComboBoxItem>
+                                    <ComboBoxItem>Querétaro</ComboBoxItem>
+                                    <ComboBoxItem>Quintana Roo</ComboBoxItem>
+                                    <ComboBoxItem>San Luis Potosí</ComboBoxItem>
+                                    <ComboBoxItem>Sinaloa</ComboBoxItem>
+                                    <ComboBoxItem>Sonora</ComboBoxItem>
+                                    <ComboBoxItem>Tabasco</ComboBoxItem>
+                                    <ComboBoxItem>Tamaulipas</ComboBoxItem>
+                                    <ComboBoxItem>Tlaxcala</ComboBoxItem>
+                                    <ComboBoxItem>Veracruz</ComboBoxItem>
+                                    <ComboBoxItem>Yucatán</ComboBoxItem>
+                                    <ComboBoxItem>Zacatecas</ComboBoxItem>
+
+
+                                </ComboBox>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Curso Inicial" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="1" Margin="0,0,0,5">
+                                <DockPanel HorizontalAlignment="Left">
+                                    <ComboBox Width="100" Margin="0,0,10,0" x:Name="cmbCategoria" SelectionChanged="cmbCategoria_SelectionChanged"/>
+                                    <ComboBox Width="50" Margin="0,0,10,0" IsEnabled="False" x:Name="cmbNivel12" Visibility="Collapsed" SelectedValuePath="Content">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="2"/>
+                                        <ComboBoxItem Content="3"/>
+                                        <ComboBoxItem Content="4"/>
+                                        <ComboBoxItem Content="5"/>
+                                        <ComboBoxItem Content="6"/>
+                                        <ComboBoxItem Content="7"/>
+                                        <ComboBoxItem Content="8"/>
+                                        <ComboBoxItem Content="9"/>
+                                        <ComboBoxItem Content="10"/>
+                                        <ComboBoxItem Content="11"/>
+                                        <ComboBoxItem Content="12"/>
+                                    </ComboBox>
+                                    <ComboBox Width="50" Margin="0,0,10,0" IsEnabled="False" x:Name="cmbNivel4" SelectedValuePath="Content">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="2"/>
+                                        <ComboBoxItem Content="3"/>
+                                        <ComboBoxItem Content="4"/>
+                                    </ComboBox>
+                                    <ComboBox Width="80" x:Name="cmbTipo" IsEnabled="False" SelectedValuePath="Content">
+                                        <ComboBoxItem Content="A"/>
+                                        <ComboBoxItem Content="B"/>
+                                        <ComboBoxItem Content="Intensivo"/>
+                                    </ComboBox>
+                                    <ComboBox Width="80" x:Name="cmbTipo2" Visibility="Collapsed" IsEnabled="False" SelectedValuePath="Content">
+                                        <ComboBoxItem Content="A"/>
+                                        <ComboBoxItem Content="B"/>
+                                    </ComboBox>
+                                </DockPanel>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Facturación?" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="1" Margin="0,0,0,5">
+                                <CheckBox x:Name="chkInvoicing" Checked="chkInvoicing_Checked" Unchecked="chkInvoicing_Checked"/>
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="grdInvoicingData" Visibility="Hidden">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="500"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Margin="0,20,0,5">
+                                <TextBlock Text="Nombre:" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" Margin="0,20,0,5">
+                                <TextBox FontSize="11" x:Name="txtNameInvo"/>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="RFC" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" Width="180" HorizontalAlignment="Left" x:Name="txtRfc"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Estado" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="1" Margin="0,0,0,5">
+                                <ComboBox Width="180" HorizontalAlignment="Left" MaxDropDownHeight="100" x:Name="cmbStateInv">
+                                    <ComboBoxItem Content="Aguascalientes"></ComboBoxItem>
+                                    <ComboBoxItem Content="Baja California"></ComboBoxItem>
+                                    <ComboBoxItem Content="Baja California Sur"></ComboBoxItem>
+                                    <ComboBoxItem Content="Campeche"></ComboBoxItem>
+                                    <ComboBoxItem Content="Chihuahua"></ComboBoxItem>
+                                    <ComboBoxItem Content="Chiapas"></ComboBoxItem>
+                                    <ComboBoxItem Content="Coahuila"></ComboBoxItem>
+                                    <ComboBoxItem Content="Colima"></ComboBoxItem>
+                                    <ComboBoxItem Content="Durango"></ComboBoxItem>
+                                    <ComboBoxItem Content="Guanajuato"></ComboBoxItem>
+                                    <ComboBoxItem>Guerrero</ComboBoxItem>
+                                    <ComboBoxItem>Hidalgo</ComboBoxItem>
+                                    <ComboBoxItem>Jalisco</ComboBoxItem>
+                                    <ComboBoxItem>México</ComboBoxItem>
+                                    <ComboBoxItem>Michoacán</ComboBoxItem>
+                                    <ComboBoxItem>Morelos</ComboBoxItem>
+                                    <ComboBoxItem>Nayarit</ComboBoxItem>
+                                    <ComboBoxItem>Nuevo León</ComboBoxItem>
+                                    <ComboBoxItem>Oaxaca</ComboBoxItem>
+                                    <ComboBoxItem>Puebla</ComboBoxItem>
+                                    <ComboBoxItem>Querétaro</ComboBoxItem>
+                                    <ComboBoxItem>Quintana Roo</ComboBoxItem>
+                                    <ComboBoxItem>San Luis Potosí</ComboBoxItem>
+                                    <ComboBoxItem>Sinaloa</ComboBoxItem>
+                                    <ComboBoxItem>Sonora</ComboBoxItem>
+                                    <ComboBoxItem>Tabasco</ComboBoxItem>
+                                    <ComboBoxItem>Tamaulipas</ComboBoxItem>
+                                    <ComboBoxItem>Tlaxcala</ComboBoxItem>
+                                    <ComboBoxItem>Veracruz</ComboBoxItem>
+                                    <ComboBoxItem>Yucatán</ComboBoxItem>
+                                    <ComboBoxItem>Zacatecas</ComboBoxItem>
+                                </ComboBox>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Ciudad" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="1" Margin="0,0,0,5">
+                                <ComboBox Width="180" HorizontalAlignment="Left" MaxDropDownHeight="100" x:Name="cmbCiudadInv">
+                                    <ComboBoxItem Content="Aguascalientes"></ComboBoxItem>
+                                    <ComboBoxItem Content="Mexicali"></ComboBoxItem>
+                                    <ComboBoxItem Content="La Paz"></ComboBoxItem>
+                                    <ComboBoxItem Content="San Francisco de Campeche"></ComboBoxItem>
+                                    <ComboBoxItem Content="Chihuahua"></ComboBoxItem>
+                                    <ComboBoxItem Content="Tuxtla Gutiérrez"></ComboBoxItem>
+                                    <ComboBoxItem Content="Saltillo"></ComboBoxItem>
+                                    <ComboBoxItem Content="Colima"></ComboBoxItem>
+                                    <ComboBoxItem Content="Victoria de Durango"></ComboBoxItem>
+                                    <ComboBoxItem Content="Guanajuato"></ComboBoxItem>
+                                    <ComboBoxItem>Cd. de México</ComboBoxItem>
+                                    <ComboBoxItem>Chilpancingo de los Bravo</ComboBoxItem>
+                                    <ComboBoxItem>Pachuca de Soto</ComboBoxItem>
+                                    <ComboBoxItem>Guadalajara</ComboBoxItem>
+                                    <ComboBoxItem>Toluca de Lerdo</ComboBoxItem>
+                                    <ComboBoxItem>Morelia</ComboBoxItem>
+                                    <ComboBoxItem>Cuernavaca</ComboBoxItem>
+                                    <ComboBoxItem>Tepic</ComboBoxItem>
+                                    <ComboBoxItem>Monterrey</ComboBoxItem>
+                                    <ComboBoxItem>Oaxaca de Juárez</ComboBoxItem>
+                                    <ComboBoxItem>Puebla de Zaragoza</ComboBoxItem>
+                                    <ComboBoxItem>Santiago de Querétaro</ComboBoxItem>
+                                    <ComboBoxItem>Chetumal</ComboBoxItem>
+                                    <ComboBoxItem>San Luis Potosí</ComboBoxItem>
+                                    <ComboBoxItem>Culiacán Rosales</ComboBoxItem>
+                                    <ComboBoxItem>Hermosillo</ComboBoxItem>
+                                    <ComboBoxItem>Villahermosa</ComboBoxItem>
+                                    <ComboBoxItem>Ciudad Victoria</ComboBoxItem>
+                                    <ComboBoxItem>Tlaxcala de Xicohténcatl</ComboBoxItem>
+                                    <ComboBoxItem>Xalapa-Enríquez</ComboBoxItem>
+                                    <ComboBoxItem>Mérida</ComboBoxItem>
+                                    <ComboBoxItem>Zacatecas</ComboBoxItem>
+                                </ComboBox>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Dirección" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" x:Name="txtAdressInv"/>
+                            </Border>
+                            <Border Grid.Row="5" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="No. Ext." FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="5" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" Width="180" HorizontalAlignment="Left" x:Name="txtNumAddinv"/>
+                            </Border>
+                            <Border Grid.Row="6" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="Colonia" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="6" Grid.Column="1" Margin="0,0,0,5">
+                                <TextBox FontSize="11" Width="180" HorizontalAlignment="Left" x:Name="txtNeighInv"/>
+                            </Border>
+                            <Border Grid.Row="7" Grid.Column="0" Margin="0,0,0,5">
+                                <TextBlock Text="C.P." FontSize="11"/>
+                            </Border>
+                            <Border Grid.Row="7" Grid.Column="1">
+                                <TextBox FontSize="11" Width="80" HorizontalAlignment="Left" x:Name="txtZipCodeInv"/>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <DockPanel HorizontalAlignment="Center"  Margin="0,10,0,10">
+                <Button Style="{DynamicResource alumnoButton}" Content="Guardar"  x:Name="btnSaveNewStudent" Click="btnSaveNewStudent_Click"/>
+                <Button Style="{DynamicResource alumnoButton}" Content="Guardar"  x:Name="btnSaveEditStudent" Click="btnSaveEditStudent_Click"  Visibility="Collapsed"/>
+                <Button Style="{DynamicResource alumnoButton}" Content="Salir" x:Name="btnSalirNewStudent" Click="btnSalirNewStudent_Click" />
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="LIVEX.UserControls.TableStudents"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="680">
+    <Grid x:Name="Content" Background="White">
+        <StackPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <TextBox Margin="20,0,50,0" Width="180" Height="30" KeyUp="txtSearch_KeyUp" x:Name="txtSearch" />
+                <Button Style="{DynamicResource alumnoButton}" Content="Nuevo" Margin="0,20,0,10" x:Name="btnAddStudent" Click="btnAddStudent_Click"/>
+            </DockPanel>
+            <DataGrid Name="myDataGrid" AutoGenerateColumns="False" ColumnHeaderHeight="40" CanUserAddRows="false">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Nombre" Width="145">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding alumno_nombre}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Apellido Paterno" Width="145">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding alumno_apellido_p}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Apellido Materno" Width="145">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding alumno_apellido_m}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Curso Inicial" Width="155">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding curso_inicial}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Editar" Width="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnEdit" Click="btnEdit_Click" Style="{DynamicResource gridBtn}" >
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/LIVEX;component/Images/pencil-edit-button.png" Stretch="Uniform"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Eliminar" Width="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Click="btnDelete_Click"  Style="{DynamicResource gridBtn}" >
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/LIVEX;component/Images/001-rubbish-bin.png" Stretch="Uniform"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Pagar" Width="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnPayment" Click="btnPayment_Click"  Style="{DynamicResource gridBtn}" >
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/LIVEX;component/Images/dollar-coin-money.png" Stretch="Uniform"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Salir" x:Name="btnSalir" Click="btnSalir_Click" Style="{DynamicResource alumnoButton}" Margin="0,200,0,0"/>
+        </StackPanel>     
+    </Grid>
+</UserControl>

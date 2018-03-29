@@ -1,0 +1,233 @@
+﻿<UserControl x:Class="LIVEX.UserControls.NominaMaestros"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="980">
+
+    <Grid x:Name="Contentx" Background="White">
+
+        <ScrollViewer x:Name="Contentz">
+           
+                <StackPanel Width="900" x:Name="stkContent">
+                    
+                    <DockPanel Margin="5,5,5,5" x:Name="dcpHeader">
+                        <Image Source="/LIVEX;component/Images/Icon/logo.png" Width="140" Margin="0,0,10,0" x:Name="imgLogo"/>
+                        <StackPanel>
+                            <TextBlock Text="CONNECT EDUCATION" FontFamily="Calibri" FontSize="11"/>
+                            <TextBlock Text="KARLA PATRICIA ELIAS GUTIERREZ" FontFamily="Calibri" FontSize="11"/>
+                            <TextBlock Text="FRANCISCO J. MUJICA 765 " FontFamily="Calibri" FontSize="11"/>
+                            <TextBlock Text="JARDINES ALCALDE" FontFamily="Calibri" FontSize="11"/>
+                        </StackPanel>
+                        <TextBlock Text="CP. 44298" Margin="20,33,0,0" FontFamily="Calibri" FontSize="11"/>
+                        <StackPanel Margin="35,16,0,0">
+                            <TextBlock Text="EIGK870426A27" FontFamily="Calibri" FontSize="11"/>
+                            <TextBlock Text="GUADALAJARA, JALISCO." FontFamily="Calibri" FontSize="11"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <!--StackPanel Header-->
+                    <StackPanel >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="381"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="2,2,0,0">
+                                <TextBlock Text="Nombre Maestro" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtTeacherName" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1,2,1,0">
+                                <TextBlock Text="Ciclo" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtCiclo" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="0,2,1,0">
+                                <TextBlock Text="fecha inicio&#x0a;fecha fin" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtFechas" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="0,2,2,0">
+                                <TextBlock Text="Año" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtYear" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="140"/>
+                                <ColumnDefinition Width="122"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="172"/>
+                                <ColumnDefinition Width="173"/>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="2,1,1,0">
+                                <TextBlock Text="ALTA" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,0">
+                                <TextBlock Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtAlta" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,0">
+                                <TextBlock Text="SEMANA 1 Y 2" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtNoSemanas" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,0">
+                                <TextBlock Text="INICIA Fecha Inicio" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtFechaInicio" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,0">
+                                <TextBlock Text="TERMINA Fecha Fin" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtFechaFin" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="5" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,0">
+                                <TextBlock Text="TOTAL HORAS" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="6" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,2,0">
+                                <TextBlock Text="Horas" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtTotalHoras" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="140"/>
+                                <ColumnDefinition Width="122"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="172"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="2,1,1,2">
+                                <TextBlock Text="TABULADOR" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,2">
+                                <TextBlock Text="550 TOEFL" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtTOEFL" Foreground="Red" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,2">
+                                <TextBlock Text="EXPERIENCIA" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtExp" Foreground="Red" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,2">
+                                <TextBlock Text="TEACHER TRAINING" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtTra" Foreground="Red" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,1,2">
+                                <TextBlock Text="LICENCIATURA" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtLic" Foreground="Red" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                            <Border Grid.Column="5" Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,2,2">
+                                <TextBlock Text="valor" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtSalario_Base" FontFamily="Calibri" FontSize="11"/>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                    <!--StackPanel Groups-->
+                    <StackPanel ScrollViewer.VerticalScrollBarVisibility="Auto" MinHeight="120" x:Name="stkContainer" Margin="0,13,0,0">
+
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Bottom" Margin="0,20,0,0">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="180"/>
+                                    <ColumnDefinition Width="81"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" BorderBrush="Black" BorderThickness="2,2,1,1">
+                                    <TextBlock Text="QUALITY CONTROL" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11" />
+                                </Border>
+                                <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0,2,1,1">
+                                    <TextBlock Text="VoBO" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11" />
+                                </Border>
+                                <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0,2,2,1">
+                                    <TextBlock Text="STUDENT VoBo" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11" />
+                                </Border>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="91"/>
+                                    <ColumnDefinition Width="89"/>
+                                    <ColumnDefinition Width="81"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" BorderBrush="Black" BorderThickness="2,0,1,2">
+                                    <TextBlock Text="SI" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtQACtrl1" />
+                                </Border>
+                                <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,2">
+                                <TextBlock Text="SI" HorizontalAlignment="Center" VerticalAlignment="Center"   x:Name="txtQACtrl2"/>
+                                </Border>
+                                <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,2">
+                                <TextBlock Text="SI" HorizontalAlignment="Center" VerticalAlignment="Center"  x:Name="txtVoBo"/>
+                                </Border>
+                                <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,2,2">
+                                <TextBlock Text="SI" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtVoBoStd"/>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                        <DockPanel Margin="0,10,0,0">
+                            <Border BorderBrush="Black" BorderThickness="2,2,0,2"  >
+                                <TextBlock Text="Nombre Maestro" x:Name="txtTName" FontWeight="Bold" FontFamily="Calibri" FontSize="11" VerticalAlignment="Center"  Width="100" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                            </Border>
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="260"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,2,1,1">
+                                        <TextBlock Text="PERCEPCIONES" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11" />
+                                    </Border>
+                                    <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0,2,1,1">
+                                        <TextBlock Text="CANT PER" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="txtPercepciones" Margin="13,0" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                                    </Border>
+                                    <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0,2,1,1">
+                                    <TextBlock Text="PERCEPCION NETA:" HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap" FontWeight="Bold" FontFamily="Calibri" FontSize="11" x:Name="txtCantWord"/>
+                                    </Border>
+                                    <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0,2,2,1">
+                                        <TextBlock Text="CANT" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtTotalNomina" FontWeight="Bold" FontFamily="Calibri" FontSize="11"/>
+                                    </Border>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="310"/>
+                                        <ColumnDefinition Width="50"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1,0,1,2">
+                                        <TextBlock Text="DEDUCCIONES" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Calibri" FontSize="11" />
+                                    </Border>
+                                    <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,2">
+                                        <TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="txtDeducciones" />
+                                    </Border>
+                                    <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,2,2" Grid.ColumnSpan="2">
+                                        <TextBlock Text="PARA DEPOSITO" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" x:Name="txtFechaDep" FontFamily="Calibri" FontSize="11"/>
+                                    </Border>
+
+                                </Grid>
+                            </StackPanel>
+                        </DockPanel>
+                        <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" Width="400">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,2"/>
+                            <TextBlock Text="NOMBRE MAESTRO" HorizontalAlignment="Center" x:Name="txtSignName" TextDecorations="{x:Null}" FontFamily="Calibri" FontSize="14"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,20,0,0" >
+                            <TextBlock TextWrapping="Wrap" Text="RECIBI DE KARLA PATRICIA ELIAS GUTIERREZ LA CANTIDAD IMPRESA POR CONCEPTO DE LA PRESTACION DE MIS SERVICIOS ASI COMO LAS COMISIONES Y BONOS CORRESPONDIENTES AL PERIODO QUE TERMINA HOY, INCLUYENDO EL TIEMPO EXTRA TRABAJADO SIN QUE A LA FECHA SE ME ADEUDE CANTIDAD ALGUNA POR OTRO CONCEPTO, HABIENDOSE HECHO LOS DESCUENTOS QUE ESTIPULA EL REGLAMENTO CORRESPONDIENTE. " TextAlignment="Justify" FontFamily="Calibri" FontSize="9"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <DockPanel HorizontalAlignment="Center" Margin="0,30,0,20 ">
+                        <Button Style="{DynamicResource alumnoButton}" Content="Print" x:Name="btnPrint" Click="btnPrint_Click"/>
+                        <Button Style="{DynamicResource alumnoButton}" Content="Salir" x:Name="btnSalir" Click="btnSalir_Click"/>
+                    </DockPanel>
+              
+                </StackPanel>
+         
+            </ScrollViewer>
+               
+        </Grid>
+     
+</UserControl>

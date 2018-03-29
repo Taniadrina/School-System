@@ -1,0 +1,365 @@
+﻿<UserControl x:Class="LIVEX.UserControls.CalendarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="980">
+    <Grid x:Name="Content" Background="White">
+       
+            <TextBlock x:Name="txtCycleName"  Height="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10,0,15" Foreground="#FF113E5B" FontSize="22" FontFamily="Calibri" FontWeight="Bold"/>
+       
+        <Grid Margin="5,40,5,45" x:Name="grdVacations" Panel.ZIndex="90">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar  x:Name="cJan"  FirstDayOfWeek="Monday" SelectionMode="MultipleRange" SelectedDatesChanged="cVac_SelectedDatesChanged" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" IsEnabled="False" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cFeb" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMar" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAbr" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMay" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJun" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJul" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAgo" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cSep" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cOct" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cNov" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cDic" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cVac_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+        </Grid >
+
+        <Grid Margin="5,40,5,45" x:Name="grdStartCycle" Panel.ZIndex="91">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar  x:Name="cJanSC" FirstDayOfWeek="Monday"  SelectionMode="MultipleRange"  SelectedDatesChanged="cSC_SelectedDatesChanged" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" IsEnabled="False" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cFebSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMarSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAbrSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMaySC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJunSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJulSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAgoSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cSepSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cOctSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cNovSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cDicSC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cSC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+        </Grid>
+
+        <Grid  Margin="5,40,5,45" x:Name="grdEndCycle" Panel.ZIndex="92">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar  x:Name="cJanEC" FirstDayOfWeek="Monday"  SelectionMode="MultipleRange" SelectedDatesChanged="cEC_SelectedDatesChanged" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" IsEnabled="False" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cFebEC"  FirstDayOfWeek="Monday" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMarEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAbrEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMayEC" FirstDayOfWeek="Monday" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJunEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJulEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAgoEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cSepEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cOctEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cNovEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cDicEC" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}" SelectedDatesChanged="cEC_SelectedDatesChanged"/>
+                </Viewbox>
+            </Border>
+        </Grid>
+
+        <Grid Margin="5,40,5,45" x:Name="grdPayment" Panel.ZIndex="89" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar  x:Name="cJanP" FirstDayOfWeek="Monday"  SelectionMode="MultipleRange" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" IsEnabled="False" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cFebP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}"  SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMarP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAbrP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cMayP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJunP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cJulP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cAgoP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cSepP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cOctP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cNovP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3">
+                <Viewbox Margin="0,0,0,5">
+                    <Calendar IsEnabled="False" x:Name="cDicP" FirstDayOfWeek="Monday"  CalendarItemStyle="{DynamicResource CalendarItemStyle1}" SelectionMode="MultipleRange" Background="{x:Null}"/>
+                </Viewbox>
+            </Border>
+        </Grid>
+
+        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30,10,30,10">
+            <Button Height="20" Width="80"  x:Name="btnSalir" Click="btnSalir_Click" Margin="0,0,15,0"  BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Image Source="/LIVEX;component/Images/003-arrow.png" Margin="0,0,10,0"/>
+                    <TextBlock Text="Salir"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="80" x:Name="btnPrint" Click="btnPrint_Click" Margin="0,0,15,0" BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Image Source="/LIVEX;component/Images/004-printing-tool.png" Margin="0,0,10,0"/>
+                    <TextBlock Text="Print"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="100"  x:Name="btnVacaciones" Click="btnVacaciones_Click" Margin="0,0,15,0" IsEnabled="False" BorderBrush="{x:Null}" Background="{x:Null}" >
+                <DockPanel>
+                    <Border Background="Gray"  Width="15" Margin="2,2,10,2" />
+                    <TextBlock Text="Vacaciones"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="100"  x:Name="btnCicloInicio" Click="btnCicloInicio_Click" Margin="0,0,15,0" IsEnabled="False" BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Border Background="Aqua" Width="15" Margin="2,2,10,2"/>
+                    <TextBlock Text="Ciclo Inicio"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="100" x:Name="btnCicloFin" Click="btnCicloFin_Click" Margin="0,0,15,0" IsEnabled="False" BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Border Background="HotPink"  Width="15" Margin="2,2,10,2"/>
+                    <TextBlock Text="Ciclo Fin"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="100" x:Name="btnClean" Click="btnClean_Click" Margin="0,0,15,0" IsEnabled="False" BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Image Source="/LIVEX;component/Images/005-double-sided-eraser.png" Margin="0,0,10,0"/>
+                    <TextBlock Text="Limpiar"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="100" x:Name="btnEdit" Click="btnEdit_Click"  Margin="0,0,15,0" BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Image Source="/LIVEX;component/Images/pencil-edit-button.png" Margin="0,0,10,0"/>
+                    <TextBlock Text="Editar"/>
+                </DockPanel>
+            </Button>
+            <Button Height="20" Width="100" x:Name="btnSave" Click="btnSave_Click"  Margin="0,0,0,0" IsEnabled="False" BorderBrush="{x:Null}" Background="{x:Null}">
+                <DockPanel>
+                    <Image Source="/LIVEX;component/Images/001-save-file-option.png" Margin="0,0,10,0"/>
+                    <TextBlock Text="Guardar"/>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+
+    </Grid>
+</UserControl>

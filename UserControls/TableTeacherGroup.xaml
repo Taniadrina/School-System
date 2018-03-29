@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="LIVEX.UserControls.TableTeacherGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LIVEX.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="680">
+    <Grid Background="White" x:Name="Content">
+        <StackPanel>
+            <DockPanel Margin="30,50,20,0" >
+                <TextBlock Text="Selecciona un maestro" FontSize="14" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbTeacherNames" Margin="10,0,10,0" Width="130" SelectionChanged="cmbTeacherNames_SelectionChanged" />
+                <TextBlock Text="Ciclo" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cmbCiclo" Width="240" SelectionChanged="cmbCiclo_SelectionChanged"/>
+                <Button Style="{DynamicResource alumnoButton}" Content="Ver Nomina" x:Name="btnVerNomina" Click="btnVerNomina_Click" IsEnabled="False"/>
+            </DockPanel>
+            <Button Content="Salir" x:Name="btnSalir" Click="btnSalir_Click" Style="{DynamicResource alumnoButton}" Margin="0,200,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
